@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(icecream.jpg); /* Add your image path here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 350px;
+            height: 250px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            background: linear-gradient(135deg, #6DD5FA, #FF758C); /* Attractive gradient */
+            color: white; /* White text color */
+            mix-blend-mode:lighten;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s;
+            z-index: -1;
+            border-radius: 5%;
+        }
+
+        .box:hover::before {
+            transform: rotate(30deg);
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .box:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="redirectToPage('history.html')">History</div>
+    <div class="box" onclick="redirectToPage('puns.html')">Puns</div>
+
+    <script>
+        function redirectToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

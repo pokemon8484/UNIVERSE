@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream History</title>
+    <style>
+        body {
+            font-family: 'futura', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            background-image: url(galaxy.jpg);
+            margin: 0;
+        }
+
+        .big-box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .big-box {
+            width: 80%;
+            max-width: 1600px;
+            background-color: #0099ff; /* Gold color */
+            box-shadow: 0 20px 40px rgba(197, 74, 74, 0.2);
+            padding: 50px;
+            border-radius: 50px;
+            animation: boxAnimation 1s ease-in-out;
+        }
+
+        @keyframes boxAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="big-box-container">
+        <div class="big-box" onclick="toggleBox()">
+            <h1>Interesting Facts About Ice Cream</h1>
+
+            <ul>
+                <li>
+                    <strong>Ancient Origins:</strong> While ice cream as we know it today has evolved over centuries, the concept of frozen desserts dates back to ancient China. Emperors would have a mix of snow and ice brought down from the mountains and combined with fruit toppings.
+                </li>
+        
+                <li>
+                    <strong>First Ice Cream Recipe:</strong> The first recorded recipe for a frozen dessert resembling ice cream is found in the recipe book of Lady Anne Fanshawe, dating back to the 17th century in England. It involved a mixture of cream, mace, and sugar.
+                </li>
+        
+                <li>
+                    <strong>Introduction to the United States:</strong> Ice cream was introduced to the United States by Quaker colonists who brought their ice cream recipes with them. The first advertisement for ice cream in the U.S. appeared in the New York Gazette in 1777.
+                </li>
+        
+                <li>
+                    <strong>Presidential Connection:</strong> It is said that Thomas Jefferson, the third President of the United States, was a big fan of ice cream. He even wrote down a recipe for vanilla ice cream.
+                </li>
+        
+                <li>
+                    <strong>Ice Cream Cones:</strong> The ice cream cone, a popular way to serve ice cream, is said to have been invented during the 1904 World's Fair in St. Louis. An ice cream vendor ran out of dishes, and a neighboring waffle vendor rolled his waffles into cones to help out.
+                </li>
+        
+                <li>
+                    <strong>Most Popular Flavor:</strong> Vanilla is consistently the most popular ice cream flavor worldwide. Despite the variety of exotic flavors available, vanilla remains a classic choice.
+                </li>
+        
+                <li>
+                    <strong>Brain Freeze:</strong> The sensation of "brain freeze" occurs when something cold, like ice cream, comes into contact with the roof of your mouth, causing blood vessels to constrict and then rapidly dilate. The sudden change in blood flow is perceived as pain.
+                </li>
+        
+                <li>
+                    <strong>World's Largest Ice Cream Sundae:</strong> The largest ice cream sundae ever made weighed over 24 tons. It was created in Edmonton, Alberta, Canada, in 1988.
+                </li>
+        
+                <li>
+                    <strong>Gelato vs. Ice Cream:</strong> Gelato is the Italian word for ice cream, but the two are slightly different. Gelato generally has less fat than ice cream and is churned at a slower speed, incorporating less air, resulting in a denser and smoother texture.
+                </li>
+        
+                <li>
+                    <strong>Ice Cream Innovations:</strong> There are numerous creative and unique ice cream flavors around the world, ranging from traditional ones like matcha and lavender to more unconventional ones like balsamic vinegar, black garlic, and even beer-flavored ice cream.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleBox() {
+            const box = document.querySelector('.big-box');
+            box.classList.toggle('active');
+        }
+
+        // Trigger animation when the page loads
+        window.onload = function () {
+            toggleBox();
+        };
+    </script>
+</body>
+</html>
