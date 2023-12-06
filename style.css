@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(jiffery.jpg); /* Add your image path */
+    background-size: 25%; /* Adjust to repeat the image four times */
+    background-repeat: repeat; /* Ensure the image repeats */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+    width: 80%;
+    max-width: 1000px; /* Adjust as needed */
+}
+
+.section {
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Adjust text color as needed */
+}
+
+#maths-physics {
+    background-color: #ffdfd3; /* Soft peach */
+}
+
+#misconceptions {
+    background-color: #d3ffce; /* Light green */
+}
+
+#theories {
+    background-color: #d3eaff; /* Pale blue */
+}
+
+#philosophy {
+    background-color: #ffd3e8; /* Light pink */
+}
+
+.section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+.section h2 {
+    margin: 0;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive; /* Google handwriting font */
+    font-size: 28px; /* Adjust font size as needed */
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 20px;
+    }
+}

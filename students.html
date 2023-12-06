@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Student List with Video Background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
     <style>
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Dancing Script', cursive;
             overflow: hidden; /* Hide scrollbars */
         }
-
+        
         .bg-video {
             position: fixed;
             right: 0;
@@ -20,41 +21,49 @@
             min-height: 100%;
             z-index: -1; /* Place video behind content */
         }
+        /* ... (previous CSS code remains unchanged) ... */
 
-        .container {
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 20px;
-            perspective: 1000px; /* Needed for 3D animations */
-            z-index: 1; /* Above the video background */
-        }
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 20px; /* Increased vertical padding */
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Adjust height based on padding */
+    perspective: 1000px;
+    z-index: 1;
+}
 
-        .student-box {
-            color: #333; /* Dark text for readability */
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 180px; /* Reduced size */
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s;
-            transform-style: preserve-3d; /* For 3D rotation */
-            position: relative;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.7); /* Lighter background */
-        }
+.student-box {
+    color: #333;
+    font-size: 20px; /* Slightly smaller font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px; /* Reduced height */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+}
 
+.student-name {
+    z-index: 1;
+    text-shadow: 0 0 8px #ffffff, 0 0 10px #ffffff;
+    font-family: 'Pacifico', cursive; /* Apply the Google font */
+}
+
+        
         .student-box:hover {
             transform: rotateY(360deg); /* 3D rotate effect on hover */
         }
 
-        .student-name {
-            z-index: 1;
-            text-shadow: 0 0 8px #ffffff, 0 0 10px #ffffff; /* Adjusted text shadow for visibility */
-        }
+        
 
         /* Custom colors for each student box */
         .student-box:nth-child(1) { background-color: rgba(255, 182, 193, 0.7); } /* Light Pink */
