@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ice Cream World</title>
+<style>
+/* Your CSS styles */
+body {
+background-color: #f0f0f0;
+font-family: Arial, sans-serif;
+color: #333;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+header {
+background-color: #66ccff;
+padding: 1em;
+text-align: center;
+font-size: 24px;
+font-weight: bold;
+color: #fff;
+border-radius: 10px;
+box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+background: #fff;
+border-radius: 10px;
+box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+margin: 20px;
+padding: 20px;
+}
+
+button {
+background-color: #4CAF50;
+color: white;
+padding: 10px 15px;
+margin: 5px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+transition: all 0.3s ease;
+}
+
+button:hover {
+transform: scale(1.1);
+}
+
+img {
+width: 200px;
+height: 200px;
+border-radius: 10px;
+object-fit: cover;
+margin: 10px;
+
+}
+
+#content {
+margin-top: 20px;
+}
+
+.student-buttons {
+display: none;
+}
+</style>
+</head>
+
+<body>
+<header>Ice Cream World</header>
+
+<section>
+<h2>Welcome to the world of ice creams!</h2>
+<p>Explore different flavors, crazy ideas, and more.</p>
+<button onclick="showIceCreamTypes()">Types of Ice Creams</button>
+<button onclick="showFlavors()">Flavors</button>
+<button onclick="showRecipes()">Recipes</button>
+<button onclick="askQuestions()">Students</button>
+</section>
+
+<!-- Add a new div element to display the information -->
+<div id="info"></div>
+
+<!-- Add a new div element to display the names -->
+<div id="names" class="student-buttons"></div>
+
+<!-- Add a new div element to display the content -->
+
+<div id="content"></div>
+
+<script>
+// Get the info div
+var infoDiv = document.getElementById('info');
+// Get the names div
+var namesDiv = document.getElementById('names');
+// Get the content div
+var contentDiv = document.getElementById('content');
+var password = "sir";
+var students = {
+    "Aadya": { 
+        info: "Additional information about Aadya goes here:<hr><br><br> What can I write, Sir?<br>Save that you're my intellectual role model and an oasis of guidance.<BR>You were so kind to me, like the cool, starlit firmament to a scorching desert.<BR>Thank you for everything.<BR>“You were a gentle sun ray<BR>Rising in a starless dawn.<BR>Now that you've settled in these glades,<BR>Bright is yonder blissful morn.” <br><br>PUNS<br><br> Q: Which is the toughest vector to handle in the world?<br><br>Ans: A Female Anopheles.<br><br>Q: Who is Sir's favourite detective?<br><br>Ans: Sherlock Ohms<br><br>E= mc2<br><br>Energy = (milk)(coffee)2<br><br>Q: What would Roy Sir’s students say when they acquire a fiancé?<br><br>Ans: “I have been Cengaged”<br><hr>",
+        password: "Aadya123"
+    },
+    "Shalang":{ 
+        info: "Additional information about Shalang goes here:<hr><br><br>Thank you for being more than just an educator; you are a mentor, a motivator and a source of inspiration. Your impact extends beyond textbooks, shaping our perspectives and nurturing a lifelong love for learning.And will miss all the short forms and the daily highlights.<br><hr>",
+        password: "Shalang123"
+    },
+    "George": {
+        info: "Additional information about George goes here:<hr><br><br>Dear Roy Sir,<br>I wanted to express my sincere gratitude for your kindness approachable and humble nature made a significant difference for me when I was struggling and lacked confidence at the beginning. Your guidance improved my understanding of physics and boosted my confidence. You were one of the people whom I could put my trust in to ask something freely. By Your indirect actions and caring thoughts toward me, I have always been motivated. You Helped me change my perspective on this subject. Thank you for being a source of inspiration.<br>There were many more things I would love to say but a small letter like this won't give its best in expressing them.<br>Also, thank you for calling me George I would prefer that name to my Usual (not because I don't like it but then classmates of all batches don't know the actual pronunciation of it ). I hope someday in my Later studies I get a Teacher like You who would make the subject fun and also make it Serious to study<br><br>Thank you, <br>GEORGE <br><hr>.",
+        password: "George123"
+    },
+    "Rishikesh": {
+        info: "Additional information about Rishikesh goes here:<hr><br><br>Sir, thank you for helping us develop excellent critical thinking skills.You made me see different ways of thinking on a particular problem.You have helped me develop great curiosity on many matters. Also, you show a deep understanding of our potentials and personalities.You care about us (but don't show it and pretend to be self centred). Little acts of kindness from your end assert this.Overall, it was a pleasure to meet a unique person like you. <br><hr>",
+        password: "Rishi123"
+    },
+    "Mahika": {
+        info: "Additional information about Mahika goes here:<hr><br><br>Before having you as my Physics sir, confidence was high and knowledge was (you know). And now that I am on the ground after having attended your lectures for one and a half year, the intricacies of so many things dawned upon me.Not only your intellectual puns, but also your aliters; your dynamic teaching has made mechange my outlook towards almost everything. Honestly amongst PCM, physics is my least favourite but you make it interesting for me (at least in the class).You are an amazing physics teacher who is hard to find, difficult to part with, and Impossible to forget.<br>So dear sir,<br>May your chalks never break, may your faculty meetings be short and may you change the world one student at a time.<br>Thank you for teaching me the ‘Watts’ of interesting things<br><br>PUNS<br><br>“Please act as if you liked our work, because we understand that for you, as a Physics teacher, the frequency of bad physics jokes Hertz.”<br><hr>.",
+        password: "Mahika123"
+    },
+    "Swara": {
+        info: "Additional information about Swara goes here:<hr><br><br>Dear Roy sir,<br> You are the epitome of knowledge, a wonderful academic mentor and a guiding light that made me realise how the world actually operates. It is my pleasure to have a personality like you in my life. Thank you for this vibrant academic journey.<br><hr>",
+        password: "Swara123"
+    },
+    "Tariq": {
+        info: "Additional information about Tariq goes here:<hr><br><br> Dear Roy Sir,<br><br>I want to express my deepest gratitude for being an exceptional guide through the fascinating world of physics. Your patience, enthusiasm, and expertise have not only enriched our minds but also ignited a lifelong love for physics within us. May the Law of Entropy grant you increasing joy in all aspects of life.  Your legacy will continue to resonate in the equations we solve and the curiosity you've instilled in us. May your future endeavors be as rewarding as the impact you've had on us.<br><br>With heartfelt thanks,<br>Tariq<hr>",
+        password: "Tariq123"
+    },
+    "Rehan": {
+        info: "Additional information about Rehan goes here:<hr><br><br>Sir,not only have you taught us physics but also changed our perspective about the world. You've always been practical while giving advice and encouraged us every time. I've learned a lot from you in the past 1 1⁄2 years. The books you've given me (HCV) helped me a lot in terms of logical reasoning and critical thinking and will always be a pleasant memory.<br><hr>",
+        password: "Rehan123"
+    }
+};
+
+function showIceCreamTypes() {
+clearContent();
+infoDiv.innerHTML = "<h3>Types of Ice Creams</h3><p>Vanilla, Chocolate, Strawberry, Mint, Chocolate Chip, Rocky Road, and many more!</p>";
+}
+
+function showFlavors() {
+clearContent();
+infoDiv.innerHTML = "<h3>Flavors</h3><p>Classic, Fruity, Nutty, Exotic, Spicy, and more exciting flavors like Mango, Blueberry, Raspberry, and Pistachio!</p>";
+
+}
+
+function showRecipes() {
+clearContent();
+infoDiv.innerHTML = "<h3>Recipes</h3><p>Here are some recipes:<br> \n\n1. Vanilla: Mix milk, sugar, and vanilla extract. Chill in the fridge and then churn in an ice cream maker.<br> \n\n2. Chocolate: Add cocoa powder to the vanilla recipe.<br> \n\n3. Strawberry: Add fresh strawberries to the vanilla recipe.<br> \n\n4. Mango: Replace vanilla extract with fresh mango puree.<br> \n\n5. Blueberry: Add fresh blueberries to the vanilla recipe.<br> \n\n6. Raspberry: Add fresh raspberries to the vanilla recipe.<br> \n\n7.Pistachio: Add crushed pistachios to the vanilla recipe.</p>";
+}
+
+
+
+
+function showStudentInfo(studentName) {
+    var studentInfo = students[studentName];
+    var enteredPassword = prompt("Enter password for " + studentName + ":");
+    if (enteredPassword === studentInfo.password) {
+        contentDiv.innerHTML = "<h3>Selected Student:</h3><p>" + studentName + "</p><div>" + studentInfo.info + "</div>";
+    } else {
+        alert("Incorrect password for " + studentName + "!");
+    }
+}
+
+function clearContent() {
+    infoDiv.innerHTML = '';
+    contentDiv.innerHTML = '';
+    namesDiv.style.display = 'none';
+}
+function askQuestions() {
+    var generalPassword = prompt("Enter the general password to access student information:");
+    if (generalPassword === "sir") { // Replace "sir" with your general password
+        clearContent();
+        namesDiv.innerHTML = ''; // Clear the namesDiv
+        namesDiv.style.display = 'block'; // Show the student buttons
+        for (var name in students) {
+            if (students.hasOwnProperty(name)) {
+                var button = document.createElement('button');
+                button.textContent = name;
+                button.addEventListener('click', (function(name) {
+                    return function() {
+                        showStudentInfo(name);
+                    };
+                })(name));
+                namesDiv.appendChild(button);
+            }
+        }
+    } else {
+        // Display the special message when the password is incorrect
+        contentDiv.innerHTML = "Now you will have to face Equus aadyaphilus" +
+            "<pre>" +
+            "               ⣿⢦⡀                          \n" +
+            "               ⢹⡟⣿⣄                         \n" +
+            "               ⠈⡟⢁⠿⣦                        \n" +
+            "             ⣀  ⢹⡉⢠⠟⢷⡀⢀⣴⣿⣦⣀⣴⣦               \n" +
+            "             ⣿⡀ ⠈⡏⠁⣠⡿⠛⠉⠁⢀⡼⡻⠛⡞⡷⢦⣀            \n" +
+            "            ⠚⢯⠟⠂ ⢹⣞⡟⠁⡠⠔⢒⡾⡼⠁ ⡇⣇ ⠙⠳⣄          \n" +
+            "             ⠸  ⢠⡼⠻⡇⢸⢀⣴⣿⣱⠁ ⢀⠇⡏⠑⢄ ⠙⢧⣀        \n" +
+            "              ⣠⡴⠋  ⠳⢌⣾⡷ ⠁  ⡼⢀⣧⡀⠈⢣⡀⡼⠉⣷⡄      \n" +
+            "            ⣠⡾⠋  ⣀⣀⣀        ⠘⠉⢳⠤⠴⠟⠁⣰⣿⠛⢶⡄    \n" +
+            "         ⢀⣤⠞⠉  ⢀⣾⡋⣻⣿⣷⡀        ⠸⣦⣠⣴⡾⡟⠉⠣⡀⠹⡄   \n" +
+            "       ⣠⠞⠋⣽    ⠘⣿⣿⣿⣾⣿⠃         ⢸ ⢸ ⡇  ⣇ ⢿          \n" +
+            "      ⢰⠏⢿⡆⠸⡄    ⠈⠛⠛⠛⠁         ⢀⡜⢀⡞⣰⢧⡀ ⢸ ⠸⣆⣴⡆ \n" +
+            "      ⢸    ⢻                 ⠛⠿⢴⠿⠚⢇ ⠳⣄⡀⠳⠤⢤⡾⠃       \n" +
+            "      ⠘⢧⡀  ⢸⡆                  ⠘⣄ ⠈⠢⣄⡀⠉⠙⢻⠛⣧         \n" +
+            "        ⠙⠒⠦⠼⠗⠒⠲⠦⢤⣀   ⣀⣠⣶⠇       ⠘⣦⣀  ⠉⢦ ⢸ ⢸⡆    \n" +
+            "                 ⠈⠉⠉⠉⠉⣰⠃        ⣠⠇⠈⢳⣄ ⢸⢀⣾ ⢸⠃         \n" +
+            "                     ⢠⡏      ⢴⣴⣚⡁⣀⡠⠊⣨⣧⡾⢫⠃⢀⡟          \n" +
+            "                     ⣼        ⠉⠓⡾⠓⢲⠋⠉⠁ ⡎⢀⡾⠁            \n" +
+            "                    ⢠⡇          ⠃ ⡎    ⢇⣼              \n" +
+            "                    ⢸⠁          ⡄ ⢣     ⠉⣹⠇            \n" +
+            "                    ⠻⣄⡀         ⢷⡀ ⠓⠤⣀⣀⠤⣶⠟             \n" +
+            "                      ⠉⠙⠓⠒⠒⠒⠒⠒⠒⠚⠋⠙⠲⠦⠤⠤⠶⠛⠁</pre>" +
+            "<marquee>EQUUS AADYAPHILUS</marquee>";
+    }
+}
+
+
+</script>
+</body>
+
+</html>
